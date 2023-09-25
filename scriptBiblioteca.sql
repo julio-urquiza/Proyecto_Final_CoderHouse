@@ -41,17 +41,17 @@ PRIMARY KEY(id_autor)
 CREATE TABLE SECTOR(
 id_sector INT AUTO_INCREMENT NOT NULL,
 nombre_sector VARCHAR(20) NOT NULL,
-descripcion_sector VARCHAR(50),
+descripcion_sector VARCHAR(100),
 PRIMARY KEY(id_sector)
 );
 
 CREATE TABLE LIBRO(
 id_libro INT AUTO_INCREMENT NOT NULL,
-nombre_libro VARCHAR(20) NOT NULL,
+nombre_libro VARCHAR(50) NOT NULL,
 id_autor INT NOT NULL,
 id_editorial INT NOT NULL,
-fecha_pulicacion DATETIME,
-descripcion_libro VARCHAR(50),
+fecha_publicacion DATETIME,
+descripcion_libro VARCHAR(200),
 valor_libro FLOAT NOT NULL,
 id_sector INT NOT NULL,
 PRIMARY KEY(id_libro),
