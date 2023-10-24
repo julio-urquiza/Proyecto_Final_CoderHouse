@@ -389,50 +389,6 @@ delimiter ;
 
 use bilbioteca;
 
-CREATE TABLE cliente_log_i(
-id_cliente INT,
-nombre_cliente VARCHAR(20),
-apellido_cliente VARCHAR(20),
-dni VARCHAR(10) NOT NULL,
-direccion_cliente VARCHAR(50),
-telefono_cliente VARCHAR(15),
-correo_electronico_cliente VARCHAR(50),
-fecha_registro_cliente DATETIME,
-nacimiento_cliente DATETIME,
-fecha_cambio DATE,
-hora_cambio time,
-user_cambio varchar(30)
-);
-
-CREATE TABLE cliente_log_u(
-id_cliente INT,
-nombre_cliente VARCHAR(20),
-apellido_cliente VARCHAR(20),
-dni VARCHAR(10) NOT NULL,
-direccion_cliente VARCHAR(50),
-telefono_cliente VARCHAR(15),
-correo_electronico_cliente VARCHAR(50),
-fecha_registro_cliente DATETIME,
-nacimiento_cliente DATETIME,
-fecha_cambio DATE,
-hora_cambio time,
-user_cambio varchar(30)
-);
-
-CREATE TABLE cliente_log_d(
-id_cliente INT,
-nombre_cliente VARCHAR(20),
-apellido_cliente VARCHAR(20),
-dni VARCHAR(10) NOT NULL,
-direccion_cliente VARCHAR(50),
-telefono_cliente VARCHAR(15),
-correo_electronico_cliente VARCHAR(50),
-fecha_registro_cliente DATETIME,
-nacimiento_cliente DATETIME,
-fecha_cambio DATE,
-hora_cambio time,
-user_cambio varchar(30)
-);
 
 -- inserta los clientes ingresados en la tabla cliente en la tabla cliente_log_i junto con la hora, fecha y el usuario que realizo la accion
 drop trigger if exists cliente_before_insert;
@@ -515,9 +471,6 @@ end //
 delimiter ;
 
 
-alter table cliente
-add edad int;
-
 -- calcual la edad del cliente automaticamente cuando se inserta en la tabla  
 drop trigger if exists cliente_after_insert;
 delimiter //
@@ -532,31 +485,6 @@ begin
 end //
 delimiter ;
 
-
-
-CREATE TABLE pedido_libro_log_i(
-id_pedido INT,
-id_libro INT,
-fecha_cambio DATE,
-hora_cambio time,
-user_cambio varchar(30)
-);
-
-CREATE TABLE pedido_libro_log_u(
-id_pedido INT,
-id_libro INT,
-fecha_cambio DATE,
-hora_cambio time,
-user_cambio varchar(30)
-);
-
-CREATE TABLE pedido_libro_log_d(
-id_pedido INT,
-id_libro INT,
-fecha_cambio DATE,
-hora_cambio time,
-user_cambio varchar(30)
-);
 
 
 -- inserta las filas insertadas en la tabla pedido_libro en la tabla pedido_libro_log_i junto con la hora, fecha y el usuario que realizo la accion

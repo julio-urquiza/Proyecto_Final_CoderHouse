@@ -1,5 +1,5 @@
-CREATE SCHEMA Biblioteca;
-USE Biblioteca;
+CREATE SCHEMA Biblioteca2;
+USE Biblioteca2;
 
 CREATE TABLE CLIENTE(
 id_cliente INT AUTO_INCREMENT NOT NULL,
@@ -11,6 +11,7 @@ telefono_cliente VARCHAR(15) NOT NULL,
 correo_electronico_cliente VARCHAR(50),
 fecha_registro_cliente DATETIME NOT NULL,
 nacimiento_cliente DATETIME,
+edad int,
 PRIMARY KEY(id_cliente)
 );
 
@@ -81,3 +82,72 @@ FOREIGN KEY(id_libro) REFERENCES LIBRO(id_libro),
 FOREIGN KEY(id_tema) REFERENCES TEMA(id_tema)
 );
 
+CREATE TABLE cliente_log_i(
+id_cliente INT,
+nombre_cliente VARCHAR(20),
+apellido_cliente VARCHAR(20),
+dni VARCHAR(10) NOT NULL,
+direccion_cliente VARCHAR(50),
+telefono_cliente VARCHAR(15),
+correo_electronico_cliente VARCHAR(50),
+fecha_registro_cliente DATETIME,
+nacimiento_cliente DATETIME,
+fecha_cambio DATE,
+hora_cambio time,
+user_cambio varchar(30)
+);
+
+CREATE TABLE cliente_log_u(
+id_cliente INT,
+nombre_cliente VARCHAR(20),
+apellido_cliente VARCHAR(20),
+dni VARCHAR(10) NOT NULL,
+direccion_cliente VARCHAR(50),
+telefono_cliente VARCHAR(15),
+correo_electronico_cliente VARCHAR(50),
+fecha_registro_cliente DATETIME,
+nacimiento_cliente DATETIME,
+fecha_cambio DATE,
+hora_cambio time,
+user_cambio varchar(30)
+);
+
+CREATE TABLE cliente_log_d(
+id_cliente INT,
+nombre_cliente VARCHAR(20),
+apellido_cliente VARCHAR(20),
+dni VARCHAR(10) NOT NULL,
+direccion_cliente VARCHAR(50),
+telefono_cliente VARCHAR(15),
+correo_electronico_cliente VARCHAR(50),
+fecha_registro_cliente DATETIME,
+nacimiento_cliente DATETIME,
+fecha_cambio DATE,
+hora_cambio time,
+user_cambio varchar(30)
+);
+
+
+CREATE TABLE pedido_libro_log_i(
+id_pedido INT,
+id_libro INT,
+fecha_cambio DATE,
+hora_cambio time,
+user_cambio varchar(30)
+);
+
+CREATE TABLE pedido_libro_log_u(
+id_pedido INT,
+id_libro INT,
+fecha_cambio DATE,
+hora_cambio time,
+user_cambio varchar(30)
+);
+
+CREATE TABLE pedido_libro_log_d(
+id_pedido INT,
+id_libro INT,
+fecha_cambio DATE,
+hora_cambio time,
+user_cambio varchar(30)
+);
