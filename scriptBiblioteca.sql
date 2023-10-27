@@ -1,5 +1,5 @@
-CREATE SCHEMA Biblioteca2;
-USE Biblioteca2;
+CREATE SCHEMA Biblioteca;
+USE Biblioteca;
 
 CREATE TABLE CLIENTE(
 id_cliente INT AUTO_INCREMENT NOT NULL,
