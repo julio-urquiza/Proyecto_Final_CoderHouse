@@ -1,30 +1,4 @@
-use bilbioteca;
-
--- inserta los clientes ingresados en la tabla cliente en la tabla cliente_log_i junto con la hora, fecha y el usuario que realizo la accion
-drop trigger if exists cliente_before_insert;
-delimiter //
-create trigger cliente_before_insert
-  before insert
-  on cliente
-  for each row
-begin
-  	insert into cliente_log_i values
-    (
-		new.id_cliente,
-		new.nombre_cliente, 
-		new.apellido_cliente, 
-		new.dni, 
-		new.direccion_cliente, 
-		new.telefono_cliente,
-		new.correo_electronico_cliente,
-		new.fecha_registro_cliente,
-		new.nacimiento_cliente, 
-		current_date(),
-        current_time(),
-		user()
-    );
-end //
-delimiter ;
+use biblioteca;
 
 -- inserta los clientes modificados en la tabla cliente en la tabla cliente_log_u junto con la hora, fecha y el usuario que realizo la accion
 drop trigger if exists cliente_before_update;
@@ -81,7 +55,7 @@ end //
 delimiter ;
 
 
--- calcual la edad del cliente automaticamente cuando se inserta en la tabla  
+-- inserta los clientes ingresados en la tabla cliente en la tabla cliente_log_i junto con la hora, fecha y el usuario que realizo la accion
 drop trigger if exists cliente_after_insert;
 delimiter //
 create trigger cliente_after_insert
@@ -89,9 +63,21 @@ create trigger cliente_after_insert
   on cliente
   for each row
 begin
-	UPDATE cliente
-	set cliente.edad=TIMESTAMPDIFF(YEAR, nacimiento_cliente, CURDATE())
-    where id_cliente=now.id_cliente;
+	insert into cliente_log_i values
+    (
+		id_cliente,
+		nombre_cliente, 
+		apellido_cliente, 
+		dni, 
+		direccion_cliente, 
+		telefono_cliente,
+		correo_electronico_cliente,
+		fecha_registro_cliente,
+		nacimiento_cliente, 
+		current_date(),
+        current_time(),
+		user()
+    );
 end //
 delimiter ;
 

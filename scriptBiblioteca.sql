@@ -21,7 +21,7 @@ fecha_pedido DATETIME NOT NULL,
 fecha_devolucion_pedido DATETIME NOT NULL,
 id_cliente INT NOT NULL,
 PRIMARY KEY(id_pedido),
-FOREIGN KEY(id_cliente) REFERENCES CLIENTE(id_cliente)
+FOREIGN KEY(id_cliente) REFERENCES CLIENTE(id_cliente) on delete cascade
 );
 
 CREATE TABLE EDITORIAL(
@@ -64,8 +64,8 @@ FOREIGN KEY(id_sector) REFERENCES SECTOR(id_sector)
 CREATE TABLE PEDIDO_LIBRO(
 id_pedido INT NOT NULL,
 id_libro INT NOT NULL,
-FOREIGN KEY(id_pedido) REFERENCES PEDIDO(id_pedido),
-FOREIGN KEY(id_libro) REFERENCES LIBRO(id_libro)
+FOREIGN KEY(id_pedido) REFERENCES PEDIDO(id_pedido) on delete cascade,
+FOREIGN KEY(id_libro) REFERENCES LIBRO(id_libro) on delete cascade
 );
 
 CREATE TABLE TEMA(
@@ -78,8 +78,8 @@ PRIMARY KEY(id_tema)
 CREATE TABLE LIBRO_TEMA(
 id_libro INT NOT NULL,
 id_tema INT NOT NULL,
-FOREIGN KEY(id_libro) REFERENCES LIBRO(id_libro),
-FOREIGN KEY(id_tema) REFERENCES TEMA(id_tema)
+FOREIGN KEY(id_libro) REFERENCES LIBRO(id_libro) on delete cascade,
+FOREIGN KEY(id_tema) REFERENCES TEMA(id_tema)on delete cascade
 );
 
 CREATE TABLE cliente_log_i(
