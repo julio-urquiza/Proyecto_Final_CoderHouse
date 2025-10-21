@@ -116,13 +116,6 @@ Se creó un backup incluyendo solo los datos, dejando de lado la estructura.
 Script:
 https://github.com/julio-urquiza/Proyecto_Final_CoderHouse/blob/main/Backup%2BUrquiza.sql
 
-Informes generados en base a la información almacenada 
-
-En el siguiente análisis se grafica la cantidad de veces que fue alquilado cada libro.
-
-Excel con el análisis a una tabla del proyecto:
-https://docs.google.com/spreadsheets/d/1fpfC76yFH_J1cnRF2kDOIiEd2LGVTm77jjh_wvlWAJk/edit?usp=sharing
-
 Scripts de creación de la estructura y datos del Proyecto completo:
 https://github.com/julio-urquiza/Proyecto_Final_CoderHouse/blob/main/ScriptGeneral.sql
 
